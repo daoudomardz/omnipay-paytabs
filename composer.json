@@ -1,0 +1,39 @@
+{
+    "name": "jestillore/omnipay-paytabs",
+    "type": "library",
+    "description": "PayTabs driver for the Omnipay payment processing library",
+    "keywords": [
+        "paytabs",
+        "gateway",
+        "merchant",
+        "omnipay",
+        "pay",
+        "payment"
+    ],
+    "homepage": "https://github.com/jestillore/omnipay-paytabs.git",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jillberth Estillore",
+            "email": "ejillberth@gmail.com"
+        },
+        {
+            "name": "Omnipay Contributors",
+            "homepage": "https://github.com/jestillore/omnipay-paytabs/contributors"
+        }
+    ],
+    "autoload": {
+        "psr-4": { "Omnipay\\PayTabs\\" : "src/" }
+    },
+    "require": {
+        "omnipay/common": "~2.0"
+    },
+    "require-dev": {
+        "omnipay/tests": "~2.0"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.0.x-dev"
+        }
+    }
+}
