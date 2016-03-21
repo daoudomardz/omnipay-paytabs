@@ -89,10 +89,5 @@ class Gateway extends AbstractGateway
     {
         return $this->createRequest('\Omnipay\PayTabs\Message\CompletePurchaseRequest', $parameters);
     }
-
-    public function validateSecretKey(array $parameters = array())
-    {
-        return $this->createRequest('\Omnipay\PayTabs\Message\VerifySecretKeyRequest', $parameters);
-    }
-
+    
 }
