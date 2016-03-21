@@ -13,12 +13,19 @@ class CompletePurchaseRequest extends PurchaseRequest
 
     public function getData()
     {
-        return $this->httpRequest->request->all();
+        $data = array();
+
+        $data['merchant_email'] = $this->getMerchantEmail();
+        $data['secret_key'] = $this->getSecretKey();
+        $data['payment_reference'] = $this->getTransactionReference();
+
+        return $data;
     }
 
     public function sendData($data)
     {
-		$response = $this->httpClient->post($this->endpoint, $data);
-        return $this->response = new CompletePurchaseResponse($this, json_decode($response));
+        $request = $this->httpClient->post($this->endpoint, null, $data);
+        $response = $request->send();
+        return $this->response = new CompletePurchaseResponse($this, json_decode($response->getBody()));
     }
 }
