@@ -94,7 +94,7 @@ class PurchaseRequest extends AbstractRequest
     	{
     		$card = $this->getCard();
 
-	    	$data['cc_first_name '] = $card->getFirstName();
+	    	$data['cc_first_name'] = $card->getFirstName();
 	    	$data['cc_last_name'] = $card->getLastName();
 	    	$data['cc_phone_number'] = $card->getPhone();
 	    	$data['phone_number'] = $card->getPhone();
@@ -130,20 +130,18 @@ class PurchaseRequest extends AbstractRequest
 
     	$data['products_per_title'] = join(' || ', $products);
     	$data['unit_price'] = join(' || ', $prices);
-    	$data['quantity'] = join(' || ', $quantity);
+    	$data['quantity'] = join(' || ', $quantities);
 
     	$data['cms_with_version'] = $this->version;
-
-    	$data['other_charges'] = $this->getParameter('otherCharges');
-    	$data['discount'] = $this->getParameter('discount');
 
         return $data;
     }
 
     public function sendData($data)
     {
-    	$response = $this->httpClient->post($this->endpoint, $data);
-    	return $this->response = new PurchaseResponse($this, json_decode($response));
+        $request = $this->httpClient->post($this->endpoint, null, $data);
+        $response = $request->send();
+    	return $this->response = new PurchaseResponse($this, json_decode($response->getBody()));
     }
 
 }
