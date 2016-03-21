@@ -2,7 +2,6 @@
 
 **PayTabs driver for the Omnipay PHP payment processing library**
 
-[![Build Status](https://travis-ci.org/jestillore/omnipay-paytabs.png?branch=master)](https://travis-ci.org/jestillore/omnipay-paytabs)
 [![Latest Stable Version](https://poser.pugx.org/jestillore/omnipay-paytabs/version.png)](https://packagist.org/packages/jestillore/omnipay-paytabs)
 [![Total Downloads](https://poser.pugx.org/jestillore/omnipay-paytabs/d/total.png)](https://packagist.org/packages/jestillore/omnipay-paytabs)
 
