@@ -155,7 +155,7 @@ else
 }
 ```
 
-Create Tokenization Profile for Customers
+Create Tokenization Profile for Customers:
 ```php
 // You need to pass all the same parameters used for create pay page, in addition to the following fields
 
@@ -191,6 +191,23 @@ else if ($response->isRedirect())
 else
 {
 	// paypage is not created
+}
+```
+
+Verify Payment:
+```php
+$transactionReference = $_POST['payment_reference'];
+$purchase = $gateway->completePurchase(array(
+	'transactionReference' => $transactionReference,
+));
+$response = $purchase->send();
+if ($response->isSuccessful())
+{
+	// payment is sucessful
+}
+else
+{
+	// paypage failed
 }
 ```
 
