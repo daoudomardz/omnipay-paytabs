@@ -72,6 +72,27 @@ class PurchaseRequest extends AbstractRequest
         return $this->setParameter('merchantIp', $value);
     }
 
+    public function getOtherCharges()
+    {
+        return $this->getParameter('other_charges');
+    }
+
+    public function setOtherCharges($value)
+    {
+        return $this->setParameter('other_charges', $value);
+    }
+
+    public function getDiscount()
+    {
+        return $this->getParameter('discount');
+    }
+
+    public function setDiscount($value)
+    {
+        return $this->setParameter('discount', $value);
+    }
+
+
     public function getData()
     {
     	$this->validate('amount', 'returnUrl');
@@ -115,6 +136,9 @@ class PurchaseRequest extends AbstractRequest
     	}
 
     	$data['amount'] = $this->getAmount();
+        $data['discount'] = $this->getDiscount();
+        $data['other_charges'] = $this->getOtherCharges();
+
 
     	// line items
     	$products = [];
